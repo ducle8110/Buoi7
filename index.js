@@ -10,19 +10,23 @@ console.log(caredSolve(1, -3, 2));
 console.log(isPrimeNumber(53));
 
 //ax^2 + bx + c = 0
-function caredSolve(number1, number2, number3) {
+function caredSolve() {
+    let number1 = document.getElementById('txtNumber1').value;
+    let number2 = document.getElementById("txtNumber2").value;
+    let number3 = document.getElementById("txtNumber3").value;
     let delta = number2 * number2 - 4 * number1 * number3;
-    return delta < 0 ? "vo nghiem" :
-        delta == 0 ? "nghiem kep x1 = x2 = " + (-number2 / 2 * number1) :
-        "2 nghiem x1 = " + (-number2 - Math.sqrt(delta)) / (2 * number1) + ", x2 = " + (-number2 + Math.sqrt(delta)) / (2 * number1);
+    document.getElementById("Result").value = delta < 0 ? "Vô nghiệm" :
+        delta == 0 ? "Nghiệm kép x1 = x2 = " + (-number2 / 2 * number1) :
+        "2 nghiệm x1 = " + (-number2 - Math.sqrt(delta)) / (2 * number1) + ", x2 = " + (-number2 + Math.sqrt(delta)) / (2 * number1);
 }
 
-function isPrimeNumber(number) {
+function isPrimeNumber() {
+    let number = document.getElementById('txtNumber4').value;
     let counter = 0;
     for (i = 1; i <= number; i++) {
         if (number % i == 0) {
             counter++;
         }
     }
-    return counter == 2 ? "so nguyen to" : "khong phai so nguyen to";
+    document.getElementById("Result2").value = counter == 2 ? "Số nguyên tố" : "Không phải số nguyên tố";
 }
